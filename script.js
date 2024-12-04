@@ -56,12 +56,12 @@ function eliminarDelCarrito(index) {
 }
 
 function confirmarMovimiento() {
-  const tipo = 'Ingreso';
+  const tipo = document.getElementById('tipo-movimiento').value;
   const total = carrito.reduce((sum, item) => sum + item.subtotal, 0);
 
   const movimiento = { tipo, items: carrito, total };
 
-  fetch('URL_DE_TU_API', {
+  fetch('https://script.google.com/macros/s/AKfycbx5LLLr43DKZocTECwmNvfdtR5g1ryB6MFERlpzthyginTGRqdOLL0CeeKWeKs5V2YKVA/exec', {
     method: 'POST',
     body: JSON.stringify(movimiento),
     headers: { 'Content-Type': 'application/json' }
@@ -73,4 +73,9 @@ function confirmarMovimiento() {
       actualizarCarrito();
     })
     .catch(error => console.error('Error:', error));
+}
+
+function toggleCarrito() {
+  const carrito = document.getElementById('carrito');
+  carrito.classList.toggle('hidden');
 }

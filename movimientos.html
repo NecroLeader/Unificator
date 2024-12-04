@@ -17,7 +17,8 @@
     </nav>
     <main class="content">
       <h1>Gestión de Movimientos</h1>
-      <div id="carrito">
+      <button id="toggle-carrito" onclick="toggleCarrito()">Ver Carrito</button>
+      <div id="carrito" class="hidden">
         <h2>Carrito de Artículos</h2>
         <table>
           <thead>
@@ -34,6 +35,13 @@
             <!-- Ítems dinámicos -->
           </tbody>
         </table>
+        <div>
+          <label for="tipo-movimiento">Tipo de Movimiento:</label>
+          <select id="tipo-movimiento">
+            <option value="Ingreso">Ingreso (Compra)</option>
+            <option value="Egreso">Egreso (Venta)</option>
+          </select>
+        </div>
         <p>Total: <span id="total">0</span></p>
         <button onclick="confirmarMovimiento()">Confirmar Movimiento</button>
       </div>
