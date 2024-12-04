@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Movimientos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="sidebar">
+      <ul>
+        <li><a href="movimientos.html" class="active">Movimientos</a></li>
+        <li><a href="stock.html">Stock</a></li>
+        <li><a href="precios.html">Lista de Precios</a></li>
+      </ul>
+    </nav>
+    <main class="content">
+      <h1>Gestión de Movimientos</h1>
+      <div id="carrito">
+        <h2>Carrito de Artículos</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Cantidad</th>
+              <th>Oferta</th>
+              <th>Subtotal</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody id="items-carrito">
+            <!-- Ítems dinámicos -->
+          </tbody>
+        </table>
+        <p>Total: <span id="total">0</span></p>
+        <button onclick="confirmarMovimiento()">Confirmar Movimiento</button>
+      </div>
+    </main>
+    <aside class="action-menu">
+      <h3>Añadir Artículo</h3>
+      <form id="formulario-articulo" onsubmit="agregarAlCarrito(event)">
+        <label for="id">ID:</label>
+        <input type="number" id="id" required>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required>
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" required>
+        <label for="precio">Precio Venta:</label>
+        <input type="number" id="precio" required>
+        <label for="oferta">Oferta:</label>
+        <select id="oferta">
+          <option value="No">No</option>
+          <option value="Sí">Sí</option>
+        </select>
+        <label for="cantidadOferta">Cantidad por Oferta:</label>
+        <input type="number" id="cantidadOferta" value="1">
+        <button type="submit">Añadir al Carrito</button>
+      </form>
+    </aside>
+  </div>
+  <script src="scripts.js"></script>
+</body>
+</html>
